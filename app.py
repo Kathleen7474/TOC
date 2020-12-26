@@ -107,7 +107,7 @@ def webhook_handler():
         if response == False:
             if event.message.text == 'fsm':
                 send_image_message(
-                    event.reply_token, 'https://concentrate-tree.herokuapp.com/show-fsm')
+                    event.reply_token, 'https://i.imgur.com/fmqsEDp.jpg')
             else:
                 send_text_message(event.reply_token, "Not Entering any State")
 

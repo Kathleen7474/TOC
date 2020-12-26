@@ -21,7 +21,7 @@ class TocMachine(GraphMachine):
         reply_token = event.reply_token
         send_text_message(reply_token, "Trigger state1")
         send_image_message(
-            reply_token, 'https://concentrate-tree.herokuapp.com/webhook')
+            reply_token, 'https://i.imgur.com/fmqsEDp.jpg')
         self.go_back()
 
     def on_exit_state1(self):
