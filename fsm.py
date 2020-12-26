@@ -1,7 +1,6 @@
 from transitions.extensions import GraphMachine
 
 from utils import send_text_message, send_image_message
-image_url = "https://imgur.com/fmqsEDp"
 
 
 class TocMachine(GraphMachine):
@@ -21,7 +20,8 @@ class TocMachine(GraphMachine):
 
         reply_token = event.reply_token
         send_text_message(reply_token, "Trigger state1")
-        send_image_message(reply_token, "https://i.imgur.com/eTldj2E.png?1")
+        send_image_message(
+            reply_token, 'https://concentrate-tree.herokuapp.com/webhook')
         self.go_back()
 
     def on_exit_state1(self):
