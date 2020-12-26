@@ -2,7 +2,7 @@ import os
 
 from linebot import LineBotApi, WebhookParser
 from linebot.models import MessageEvent, TextMessage, TextSendMessage, ImageSendMessage
-
+to = U4b49ae680677e8221bdfea9fd0100d2d
 
 channel_access_token = os.getenv("LINE_CHANNEL_ACCESS_TOKEN", None)
 
@@ -26,9 +26,13 @@ def send_image_message(reply_token, url):
     line_bot_api = LineBotApi(channel_access_token)
     message = ImageSendMessage(
         type='image',
-        original_content_url=url,
-        preview_image_url=url
+        original_content_url="https://i.imgur.com/eTldj2E.png?1",
+        preview_image_url="https://i.imgur.com/eTldj2E.png?1"
     )
     line_bot_api.reply_message(reply_token, message)
-
+    try:
+        line_bot_api.push_message(to, ImageSendMessage(original_content_url="https://i.imgur.com/eTldj2E.png?1", "https://i.imgur.com/eTldj2E.png?1"))
+    except LineBotApiError as e:
+        # error handle
+        raise e
     return "OK"
