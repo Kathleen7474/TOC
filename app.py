@@ -257,7 +257,7 @@ def webhook_handler():
         if response == False:
             if event.message.text == 'fsm':
                 send_image_message(
-                    event.reply_token, 'https://399724d86210.ngrok.io/show-fsm')
+                    event.reply_token, 'https://concentrate-tree.herokuapp.com//show-fsm')
             elif event.message.text == 'button':
                 buttons_template = TemplateSendMessage(
                     alt_text='Buttons Template',
