@@ -134,10 +134,11 @@ def send_result_message(reply_token, url, text):
     line_bot_api = LineBotApi(channel_access_token)
     buttons_template = TemplateSendMessage(
         alt_text='Buttons Template',
-        thumbnail_image_url=url,
+
         template=ButtonsTemplate(
             title='恭喜',
             text=text,
+            thumbnail_image_url=url,
             actions=[
                 MessageTemplateAction(
                     label='完成',
