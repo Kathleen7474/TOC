@@ -259,12 +259,13 @@ def webhook_handler():
                 send_image_message(
                     event.reply_token, 'https://concentrate-tree.herokuapp.com//show-fsm')
             elif event.message.text == 'button':
+                url = 'https://i.imgur.com/fmqsEDp.jpg'
                 buttons_template = TemplateSendMessage(
                     alt_text='Buttons Template',
                     template=ButtonsTemplate(
                         title='這是ButtonsTemplate',
                         text='ButtonsTemplate可以傳送text,uri',
-                        thumbnail_image_url='https://i.imgur.com/fmqsEDp.jpg',
+                        thumbnail_image_url=url,
                         actions=[
                             MessageTemplateAction(
                                 label='ButtonsTemplate',
