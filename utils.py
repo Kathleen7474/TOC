@@ -126,8 +126,26 @@ def send_image_message(reply_token, url):
 
 
 def send_result_message(reply_token, url, text):
+    # line_bot_api = LineBotApi(channel_access_token)
+    # line_bot_api.push_message(to, ImageSendMessage(
+    #     original_content_url=url, preview_image_url=url))
+    # line_bot_api.reply_message(reply_token, TextSendMessage(text=text))
+
     line_bot_api = LineBotApi(channel_access_token)
-    line_bot_api.push_message(to, ImageSendMessage(
-        original_content_url=url, preview_image_url=url))
-    line_bot_api.reply_message(reply_token, TextSendMessage(text=text))
+    buttons_template = TemplateSendMessage(
+        alt_text='Buttons Template',
+        thumbnail_image_url=url,
+        template=ButtonsTemplate(
+            title='恭喜',
+            text=text,
+            actions=[
+                MessageTemplateAction(
+                    label='完成',
+                    text='finish'
+                ),
+
+            ]
+        )
+    )
+    line_bot_api.reply_message(reply_token, buttons_template)
     return "ok"
